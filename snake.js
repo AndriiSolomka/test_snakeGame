@@ -12,7 +12,7 @@ snakeView.src = "image/snake.png";
 
 let boxLength = 32;
 let score = 0;
-
+let record = 0;
 
 const localStorageRecordKey = 'snakeGameRecord';
 
@@ -42,8 +42,6 @@ snake[0] ={
 
 document.addEventListener("keydown", direction);
 
-
-
 let dir;
 function direction(event){
     if(event.keyCode === 37 && dir !=="right") // 37 == key code ArrowLeft
@@ -67,7 +65,6 @@ function eatTail(head, snakeTail){
 function drawSnakeGame(){
     ctx.drawImage(gameField, 0, 0);
     ctx.drawImage(food,snakefood.x, snakefood.y);
-
 
     for(let i = 0; i < snake.length; i++){
 
@@ -105,7 +102,7 @@ function drawSnakeGame(){
         snake.pop();
     }
 
-    if(snakeX < boxLength || snakeX > boxLength * boxLength * playFieldWidth
+    if(snakeX < boxLength || snakeX > boxLength * playFieldWidth
         || snakeY < extraHeightPlayArea * boxLength || snakeY > boxLength * playFieldWidth)
         handleGameOver();
 
