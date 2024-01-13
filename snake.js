@@ -125,6 +125,12 @@ const handleGameOver = () => {
     alert(`You have lost☠️\nJust try again😎`);
     reload();
 };
+
+const resetRecord = () => {
+    record = 0;
+    localStorage.setItem(localStorageRecordKey, record);
+};
+
 let snakeColor = "green";
 let gameSpeed = 100;
 
