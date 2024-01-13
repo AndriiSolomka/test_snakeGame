@@ -25,34 +25,28 @@ let snakefood = {
     y: Math.floor((Math.random() * playFieldHeight + extraHeightPlayArea)) * boxLength,
 };
 
+const startSnakeXpos = 9;
+const startSnakeYpos = 10;
 
 let snake = [];
 snake[0] ={
-    x: 9 * boxLength,
-    y: 10 * boxLength,
+    x: startSnakeXpos * boxLength,
+    y: startSnakeYpos * boxLength,
 };
 
 document.addEventListener("keydown", direction);
 
-const reload = () => {
-    clearInterval(game);
-    location.reload();
-};
-const handleGameOver = () => {
-    clearInterval(game);
-    alert( `You have lost😢\n  Try again😊`);
-    reload();
-};
+
 
 let dir;
 function direction(event){
-    if(event.keyCode === 37 && dir !=="right")
+    if(event.keyCode === 37 && dir !=="right") // 37 == key code ArrowLeft
         dir = "left";
-    else if(event.keyCode === 38 && dir !=="down")
+    else if(event.keyCode === 38 && dir !=="down") // 38 == key code ArrowUp
         dir = "up";
-    else if(event.keyCode === 39 && dir !=="left")
+    else if(event.keyCode === 39 && dir !=="left") // 39 == key code ArrowRight
         dir = "right";
-    else if(event.keyCode === 40 && dir !=="up")
+    else if(event.keyCode === 40 && dir !=="up") // 40 == key code ArrowDown
         dir = "down";
 }
 
@@ -97,8 +91,8 @@ function drawSnakeGame(){
         snake.pop();
     }
 
-    if(snakeX < boxLength || snakeX > boxLength * 17
-        || snakeY < 3 * boxLength || snakeY > boxLength * 17)
+    if(snakeX < boxLength || snakeX > boxLength * boxLength * playFieldWidth
+        || snakeY < extraHeightPlayArea * boxLength || snakeY > boxLength * playFieldWidth)
         handleGameOver();
 
 
@@ -117,7 +111,15 @@ function drawSnakeGame(){
     snake.unshift(newSnakeLength);
 
 }
-
+const reload = () => {
+    clearInterval(game);
+    location.reload();
+};
+const handleGameOver = () => {
+    clearInterval(game);
+    alert( `You have lost😢\n  Try again😊`);
+    reload();
+};
 
 let game = setInterval(drawSnakeGame, 100);
 
