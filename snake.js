@@ -128,12 +128,30 @@ const reload = () => {
 };
 const handleGameOver = () => {
     clearInterval(game);
-    alert( `You have lost😢\n  Try again😊`);
+    alert(`You have lost☠️\nJust try again😎`);
     reload();
 };
+let snakeColor = "green";
+let gameSpeed = 100;
+
+function setSpeed(mode) {
+    if (mode === 'low') {
+        gameSpeed = 150;
+        snakeColor = "yellow";
+    } else if (mode === 'normal') {
+        gameSpeed = 100;
+        snakeColor = "green";
+    } else if (mode === 'high') {
+        gameSpeed = 50;
+        snakeColor = "red";
+    }
+
+    clearInterval(game);
+    game = setInterval(drawSnakeGame, gameSpeed);
+}
 
 let game = setInterval(drawSnakeGame, 100);
 
-
+setSpeed('normal');
 
 
