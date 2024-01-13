@@ -10,7 +10,7 @@ food.src = "image/food.png";
 const snakeView = new Image();
 snakeView.src = "image/snake.png";
 
-let boxLength = 32;
+const boxLength = 32;
 let score = 0;
 let record = 0;
 
@@ -44,14 +44,10 @@ document.addEventListener("keydown", direction);
 
 let dir;
 function direction(event){
-    if(event.keyCode === 37 && dir !=="right") // 37 == key code ArrowLeft
-        dir = "left";
-    else if(event.keyCode === 38 && dir !=="down") // 38 == key code ArrowUp
-        dir = "up";
-    else if(event.keyCode === 39 && dir !=="left") // 39 == key code ArrowRight
-        dir = "right";
-    else if(event.keyCode === 40 && dir !=="up") // 40 == key code ArrowDown
-        dir = "down";
+    if (event.keyCode === 37 && dir !=="right") dir = "left"; // 37 == key code ArrowLeft
+    else if (event.keyCode === 38 && dir !=="down") dir = "up"; // 38 == key code ArrowUp
+    else if(event.keyCode === 39 && dir !=="left") dir = "right"; // 39 == key code ArrowRight
+    else if(event.keyCode === 40 && dir !=="up") dir = "down"; // 40 == key code ArrowDown
 }
 
 function eatTail(head, snakeTail){
@@ -105,8 +101,6 @@ function drawSnakeGame(){
     if(snakeX < boxLength || snakeX > boxLength * playFieldWidth
         || snakeY < extraHeightPlayArea * boxLength || snakeY > boxLength * playFieldWidth)
         handleGameOver();
-
-
 
     if(dir === "left") snakeX -=boxLength;
     if(dir === "right") snakeX +=boxLength;
