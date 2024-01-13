@@ -14,10 +14,17 @@ let boxLength = 32;
 let score = 0;
 
 
-let snakefood= {
-    x: Math.floor((Math.random()*17+1)) * boxLength,
-    y: Math.floor((Math.random()*15+1)) * boxLength,
+const playFieldWidth = 17;
+const playFieldHeight = 15;
+const fieldDimensions = 18;
+const extraWidthPlayArea = fieldDimensions - playFieldWidth;
+const extraHeightPlayArea = fieldDimensions - playFieldHeight;
+
+let snakefood = {
+    x: Math.floor((Math.random() * playFieldWidth + extraWidthPlayArea)) * boxLength,
+    y: Math.floor((Math.random() * playFieldHeight + extraHeightPlayArea)) * boxLength,
 };
+
 
 let snake = [];
 snake[0] ={
@@ -66,9 +73,9 @@ function drawSnakeGame(){
 
         if(i === 0){
             ctx.drawImage(snakeView,snake[i].x, snake[i].y, boxLength, boxLength );
-    } else {
-             ctx.fillStyle = "green";
-             ctx.fillRect(snake[i].x, snake[i].y, boxLength, boxLength);
+        } else {
+            ctx.fillStyle = "green";
+            ctx.fillRect(snake[i].x, snake[i].y, boxLength, boxLength);
         }
     }
 
@@ -82,17 +89,17 @@ function drawSnakeGame(){
 
     if(snakeX === snakefood.x && snakeY === snakefood.y){
         score++;
-         snakefood = {
+        snakefood = {
             x: Math.floor((Math.random()*17+1)) * boxLength,
-            y: Math.floor((Math.random()*15+1)) * boxLength,
+            y: Math.floor((Math.random()*15+3)) * boxLength,
         };
     } else {
         snake.pop();
     }
 
-     if(snakeX < boxLength || snakeX > boxLength * 17
-     || snakeY < 3 * boxLength || snakeY > boxLength * 17)
-         handleGameOver();
+    if(snakeX < boxLength || snakeX > boxLength * 17
+        || snakeY < 3 * boxLength || snakeY > boxLength * 17)
+        handleGameOver();
 
 
 
@@ -113,7 +120,6 @@ function drawSnakeGame(){
 
 
 let game = setInterval(drawSnakeGame, 100);
-
 
 
 
