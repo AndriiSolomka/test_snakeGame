@@ -57,7 +57,6 @@ function eatTail(head, snakeTail){
         }
     }
 }
-
 function drawSnakeGame(){
     ctx.drawImage(gameField, 0, 0);
     ctx.drawImage(food,snakefood.x, snakefood.y);
@@ -122,7 +121,7 @@ const reload = () => {
 };
 const handleGameOver = () => {
     clearInterval(game);
-    alert(`You have lost☠️\nJust try again😎`);
+    alert(`You have lost☠️\nJust try again😎\nYour score ${score} 👏\nYour record ${record} 💪`);
     reload();
 };
 
@@ -145,13 +144,11 @@ function setSpeed(mode) {
         gameSpeed = 50;
         snakeColor = "red";
     }
-
     clearInterval(game);
     game = setInterval(drawSnakeGame, gameSpeed);
 }
 
 let game = setInterval(drawSnakeGame, 100);
-
 setSpeed('normal');
 
 
