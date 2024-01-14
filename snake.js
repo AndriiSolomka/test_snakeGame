@@ -91,8 +91,13 @@ function drawSnakeGame(){
         ctx.fillText(text, x, y);
     }
 
-    drawText(score, "yellow", "60px", boxLength * 2, boxLength * 1.8);
-    drawText("Record: " + record, "pink", "40px", boxLength * 10, boxLength * 1.8);
+    const scoreTextX = 2;
+    const scoreTextY = 1.8;
+    const recordTextX = 10;
+    const recordTextY = 1.8;
+
+    drawText(score, "yellow", "60px", boxLength * scoreTextX, boxLength * scoreTextY);
+    drawText("Record: " + record, "pink", "40px", boxLength * recordTextX, boxLength * recordTextY);
 
 
     let snakeX = snake[0].x;
