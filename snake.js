@@ -49,10 +49,10 @@ const KEY_RIGHT = 39;
 const KEY_DOWN = 40;
 
 function direction(event){
-    if (event.keyCode === KEY_LEFT && dir !=="right") dir = "left";
-    else if (event.keyCode === KEY_UP && dir !=="down") dir = "up";
-    else if(event.keyCode === KEY_RIGHT && dir !=="left") dir = "right";
-    else if(event.keyCode === KEY_DOWN && dir !=="up") dir = "down";
+    if ((event.keyCode === KEY_LEFT || event.key === 'a') && dir !=="right") dir = "left";
+    else if ((event.keyCode === KEY_UP || event.key === 'w') && dir !=="down") dir = "up";
+    else if((event.keyCode === KEY_RIGHT && dir || event.key === 'd') && dir !=="left") dir = "right";
+    else if((event.keyCode === KEY_DOWN || event.key === 's') && dir !=="up") dir = "down";
 }
 
 function eatTail(head, snakeTail){
