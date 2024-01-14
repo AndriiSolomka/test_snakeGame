@@ -43,11 +43,16 @@ snake[0] ={
 document.addEventListener("keydown", direction);
 
 let dir;
+const KEY_LEFT = 37;
+const KEY_UP = 38;
+const KEY_RIGHT = 39;
+const KEY_DOWN = 40;
+
 function direction(event){
-    if (event.keyCode === 37 && dir !=="right") dir = "left"; // 37 == key code ArrowLeft
-    else if (event.keyCode === 38 && dir !=="down") dir = "up"; // 38 == key code ArrowUp
-    else if(event.keyCode === 39 && dir !=="left") dir = "right"; // 39 == key code ArrowRight
-    else if(event.keyCode === 40 && dir !=="up") dir = "down"; // 40 == key code ArrowDown
+    if (event.keyCode === KEY_LEFT && dir !=="right") dir = "left";
+    else if (event.keyCode === KEY_UP && dir !=="down") dir = "up";
+    else if(event.keyCode === KEY_RIGHT && dir !=="left") dir = "right";
+    else if(event.keyCode === KEY_DOWN && dir !=="up") dir = "down";
 }
 
 function eatTail(head, snakeTail){
