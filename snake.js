@@ -46,18 +46,20 @@ snake[0] ={
 document.addEventListener("keydown", direction);
 
 //JavaScript Key Code
-let dir;
-const KEY_LEFT = 37;
-const KEY_UP = 38;
-const KEY_RIGHT = 39;
-const KEY_DOWN = 40;
+const KEY_CODES = {
+    LEFT: 37,
+    UP: 38,
+    RIGHT: 39,
+    DOWN: 40,
+};
 
 // Handle key presses
+let dir;
 function direction(event){
-    if ((event.keyCode === KEY_LEFT || event.key === 'a') && dir !=="right") dir = "left";
-    else if ((event.keyCode === KEY_UP || event.key === 'w') && dir !=="down") dir = "up";
-    else if((event.keyCode === KEY_RIGHT && dir || event.key === 'd') && dir !=="left") dir = "right";
-    else if((event.keyCode === KEY_DOWN || event.key === 's') && dir !=="up") dir = "down";
+    if ((event.keyCode === KEY_CODES.LEFT || event.key === 'a') && dir !=="right") dir = "left";
+    else if ((event.keyCode === KEY_CODES.UP || event.key === 'w') && dir !=="down") dir = "up";
+    else if((event.keyCode === KEY_CODES.RIGHT && dir || event.key === 'd') && dir !=="left") dir = "right";
+    else if((event.keyCode ===KEY_CODES.DOWN || event.key === 's') && dir !=="up") dir = "down";
 }
 
 // Check for collision with the tail
