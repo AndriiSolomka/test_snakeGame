@@ -38,9 +38,9 @@ Try to achieve the highest score and beat your own record.
 
 Adjust the game speed by clicking on the corresponding buttons:
 
-Low Speed
-Normal Speed
-High Speed
+-Low Speed
+-Normal Speed
+-High Speed
 
 ## Reset Record
 Reset your highest score to start fresh and challenge yourself to beat your own record.
